@@ -4,16 +4,16 @@
     const sub2 = function () {
 
         function Init() {
-            function resetScroll() {
-                setTimeout(function () {
-                    window.scrollTo(0, 0);
-                    document.body.scrollTop = 0;
-                    document.documentElement.scrollTop = 0;
-                }, 10);
-            }
+            // function resetScroll() {
+            //     setTimeout(function () {
+            //         window.scrollTo(0, 0);
+            //         document.body.scrollTop = 0;
+            //         document.documentElement.scrollTop = 0;
+            //     }, 10);
+            // }
 
-            window.addEventListener("DOMContentLoaded", resetScroll);
-            window.addEventListener("load", resetScroll);
+            // window.addEventListener("DOMContentLoaded", resetScroll);
+            // window.addEventListener("load", resetScroll);
 
             createVisual();
             createSecret();
