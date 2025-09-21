@@ -78,6 +78,8 @@
                 mX = Math.abs(clientX - sX);
                 mY = Math.abs(clientY - sY);
 
+                if( mY < 10 ) return;
+
                 if (mX > mY) {
                     console.log("swiper");
                 } else {
@@ -105,7 +107,7 @@
                     change(sceneIndex, sceneType);
                     setTimeout(() => {
                         isScroll = false;
-                    }, 1500 );
+                    }, 1000 );
 
                     isScroll = true;
                 }
