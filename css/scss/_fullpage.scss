@@ -618,7 +618,7 @@ body {
     .secret {
         position: relative;
         width: 100%;
-        height: 100vh;
+        height: 100dvh;
         z-index: 2;
 
         .secret-title {
@@ -696,7 +696,7 @@ body {
 
     .quiz {
         background-color: #FAFAF0;
-        height: 100vh;
+        height: 100dvh;
         display: flex;
         align-items: center;
         justify-content: center;

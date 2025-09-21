@@ -3251,7 +3251,7 @@ body.hidden {
 .fullpage .secret {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   z-index: 2;
 }
 .fullpage .secret .secret-title {
@@ -3319,7 +3319,7 @@ body.hidden {
 }
 .fullpage .quiz {
   background-color: #FAFAF0;
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
