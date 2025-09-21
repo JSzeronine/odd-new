@@ -93,18 +93,18 @@
             )
 
             gsap.fromTo(chicken,
-                { opacity: 0, x: -20 },
-                { opacity: 1, x: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                { opacity: 0, y: 50 },
+                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
             )
 
             gsap.fromTo(bgItem,
-                { opacity: 0, x: 20 },
-                { opacity: 1, x: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
             )
         }
 
         function exitSecret() {
-            _secret.addClass("on");
+            _secret.removeClass("on");
 
             const title = _secret.find(".secret-title");
             const titleDt = title.find("dl dt");
@@ -125,12 +125,12 @@
 
             gsap.fromTo(chicken,
                 { opacity: 1, x: 0 },
-                { opacity: 0, x: 20, duration: 1, ease: Cubic.easeInOut }
+                { opacity: 0, y: 20, duration: 1, ease: Cubic.easeInOut }
             )
 
             gsap.fromTo(bgItem,
                 { opacity: 1, x: 0 },
-                { opacity: 0, x: -20, duration: 1, ease: Cubic.easeInOut }
+                { opacity: 0, y: 20, duration: 1, ease: Cubic.easeInOut }
             )
         }
 
@@ -213,7 +213,6 @@
         }
 
         function exitStep0Swiper() {
-            console.log( "exitStep0Swiper" );
             $(_stepList[0]).find(".tutorial-description").removeClass("on");
 
             const swiper = $(_stepList[0]).find(".tutorial-description");
@@ -226,59 +225,358 @@
         }
 
         function inStep1() {
+            const delayTime = 0.5;
             $(_stepList[1]).addClass("on");
+
+            const stepTitle = $(_stepList[1]).find(".tutorial-step-bx");
+            const stepTitleDt = stepTitle.find("dl dt");
+            const stepTitleDd = stepTitle.find("dl dd");
+            const animationItems = $(_stepList[1]).find(".tutorial-animation--items--01").find("img");
+
+            gsap.set(stepTitleDt, { opacity: 0 });
+            gsap.set(stepTitleDd, { opacity: 0 });
+            gsap.set(animationItems, { opacity: 0 });
+
+            gsap.fromTo(stepTitleDt,
+                { opacity: 0, y: -20 },
+                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+            )
+
+            gsap.fromTo(stepTitleDd,
+                { opacity: 0, y: -20 },
+                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+            )
+
+            const inPostion = {
+                x: [-30, 30, 0, 0, 0],
+                y: [0, 0, 30, 30, 30]
+            }
+
+            animationItems.each(function (i, el) {
+                gsap.fromTo(el,
+                    { opacity: 0, x: inPostion.x[i], y: inPostion.y[i] },
+                    { opacity: 1, x: 0, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                )
+            })
         }
 
         function inStep1Swiper() {
             $(_stepList[1]).find(".tutorial-description").addClass("on");
+
+            const swiper = $(_stepList[1]).find(".tutorial-description");
+
+            swiper.css("display", "flex");
+            gsap.fromTo(swiper, 
+                { opacity: 0, y: 50 }, 
+                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut });
         }
 
         function exitStep1() {
             $(_stepList[1]).removeClass("on");
+
+            const stepTitle = $(_stepList[1]).find(".tutorial-step-bx");
+            const stepTitleDt = stepTitle.find("dl dt");
+            const stepTitleDd = stepTitle.find("dl dd");
+
+            gsap.fromTo(stepTitleDt,
+                { opacity: 1, y: 0 },
+                { opacity: 0, y: -20, duration: 1, ease: Cubic.easeOut }
+            )
+
+            gsap.fromTo(stepTitleDd,
+                { opacity: 1, y: 0 },
+                { opacity: 0, y: -20, duration: 1, ease: Cubic.easeOut }
+            )
+
+            const animationItems = $(_stepList[1]).find(".tutorial-animation--items--01").find("img");
+            const inPostion = {
+                x: [-30, 30, 0, 0, 0],
+                y: [0, 0, 30, 30, 30]
+            }
+
+            animationItems.each(function (i, el) {
+                gsap.fromTo(el,
+                    { opacity: 1, x: 0, y: 0 },
+                    { opacity: 0, x: inPostion.x[i], y: inPostion.y[i], duration: 1, ease: Cubic.easeOut }
+                )
+            })
         }
 
         function exitStep1Swiper() {
             $(_stepList[1]).find(".tutorial-description").removeClass("on");
+
+            const swiper = $(_stepList[1]).find(".tutorial-description");
+
+            gsap.fromTo(swiper, 
+                { opacity: 1, y: 0 }, 
+                { opacity: 0, y: 0, duration: 1, ease: Cubic.easeInOut, onComplete: () => {
+                    swiper.css("display", "none");
+            }});
         }
 
         function inStep2() {
+            const delayTime = 0.5;
             $(_stepList[2]).addClass("on");
+
+            const stepTitle = $(_stepList[2]).find(".tutorial-step-bx");
+            const stepTitleDt = stepTitle.find("dl dt");
+            const stepTitleDd = stepTitle.find("dl dd");
+            const animationItems = $(_stepList[2]).find(".tutorial-animation--items--02").find("img");
+
+            gsap.set(stepTitleDt, { opacity: 0 });
+            gsap.set(stepTitleDd, { opacity: 0 });
+            gsap.set(animationItems, { opacity: 0 });
+
+            gsap.fromTo(stepTitleDt,
+                { opacity: 0, y: -20 },
+                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+            )
+
+            gsap.fromTo(stepTitleDd,
+                { opacity: 0, y: -20 },
+                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+            )
+
+            const inPostion = {
+                x: [-30, 30, 0, 0, 0],
+                y: [0, 0, 30, 30, 30]
+            }
+
+            animationItems.each(function (i, el) {
+                gsap.fromTo(el,
+                    { opacity: 0, x: inPostion.x[i], y: inPostion.y[i] },
+                    { opacity: 1, x: 0, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                )
+            })
         }
 
         function inStep2Swiper() {
             $(_stepList[2]).find(".tutorial-description").addClass("on");
+
+            const swiper = $(_stepList[2]).find(".tutorial-description");
+
+            swiper.css("display", "flex");
+            gsap.fromTo(swiper, 
+                { opacity: 0, y: 50 }, 
+                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut });
         }
 
         function exitStep2() {
             $(_stepList[2]).removeClass("on");
+
+            const stepTitle = $(_stepList[2]).find(".tutorial-step-bx");
+            const stepTitleDt = stepTitle.find("dl dt");
+            const stepTitleDd = stepTitle.find("dl dd");
+
+            gsap.fromTo(stepTitleDt,
+                { opacity: 1, y: 0 },
+                { opacity: 0, y: -20, duration: 1, ease: Cubic.easeOut }
+            )
+
+            gsap.fromTo(stepTitleDd,
+                { opacity: 1, y: 0 },
+                { opacity: 0, y: -20, duration: 1, ease: Cubic.easeOut }
+            )
+
+            const animationItems = $(_stepList[2]).find(".tutorial-animation--items--02").find("img");
+            const inPostion = {
+                x: [-30, 30, 0, 0, 0],
+                y: [0, 0, 30, 30, 30]
+            }
+
+            animationItems.each(function (i, el) {
+                gsap.fromTo(el,
+                    { opacity: 1, x: 0, y: 0 },
+                    { opacity: 0, x: inPostion.x[i], y: inPostion.y[i], duration: 1, ease: Cubic.easeOut }
+                )
+            })
         }
 
         function exitStep2Swiper() {
             $(_stepList[2]).find(".tutorial-description").removeClass("on");
+
+            const swiper = $(_stepList[2]).find(".tutorial-description");
+
+            gsap.fromTo(swiper, 
+                { opacity: 1, y: 0 }, 
+                { opacity: 0, y: 0, duration: 1, ease: Cubic.easeInOut, onComplete: () => {
+                    swiper.css("display", "none");
+            }});
         }
 
         function inStep3() {
+            const delayTime = 0.5;
             $(_stepList[3]).addClass("on");
+
+            const stepTitle = $(_stepList[3]).find(".tutorial-step-bx");
+            const stepTitleDt = stepTitle.find("dl dt");
+            const stepTitleDd = stepTitle.find("dl dd");
+            const animationItems = $(_stepList[3]).find(".tutorial-animation--items--03").find("img");
+
+            gsap.set(stepTitleDt, { opacity: 0 });
+            gsap.set(stepTitleDd, { opacity: 0 });
+            gsap.set(animationItems, { opacity: 0 });
+
+            gsap.fromTo(stepTitleDt,
+                { opacity: 0, y: -20 },
+                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+            )
+
+            gsap.fromTo(stepTitleDd,
+                { opacity: 0, y: -20 },
+                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+            )
+
+            const inPostion = {
+                x: [0, 30, -30, -60, 0],
+                y: [30, 0, 0, 0, 0]
+            }
+
+            animationItems.each(function (i, el) {
+                if( i === 4 ){
+                    return;
+                }
+
+                gsap.fromTo(el,
+                    { opacity: 0, x: inPostion.x[i], y: inPostion.y[i] },
+                    { opacity: 1, x: 0, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                )
+            });
+
+            gsap.fromTo( animationItems[4], 
+                { opacity: 0, rotationY: 0 },
+                { opacity: 1, rotationY: 360, duration: 0.75, ease: "none", delay: 1.25 }
+            )
         }
 
         function inStep3Swiper() {
             $(_stepList[3]).find(".tutorial-description").addClass("on");
+
+            const swiper = $(_stepList[3]).find(".tutorial-description");
+
+            swiper.css("display", "flex");
+            gsap.fromTo(swiper, 
+                { opacity: 0, y: 50 }, 
+                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut });
         }
 
         function exitStep3() {
             $(_stepList[3]).removeClass("on");
+
+            const stepTitle = $(_stepList[3]).find(".tutorial-step-bx");
+            const stepTitleDt = stepTitle.find("dl dt");
+            const stepTitleDd = stepTitle.find("dl dd");
+
+            gsap.fromTo(stepTitleDt,
+                { opacity: 1, y: 0 },
+                { opacity: 0, y: -20, duration: 1, ease: Cubic.easeOut }
+            )
+
+            gsap.fromTo(stepTitleDd,
+                { opacity: 1, y: 0 },
+                { opacity: 0, y: -20, duration: 1, ease: Cubic.easeOut }
+            )
+
+            const animationItems = $(_stepList[3]).find(".tutorial-animation--items--03").find("img");
+            const inPostion = {
+                x: [0, 30, -30, -60, 0],
+                y: [30, 0, 0, 0, 0]
+            }
+
+            animationItems.each(function (i, el) {
+                gsap.fromTo(el,
+                    { opacity: 1, x: 0, y: 0 },
+                    { opacity: 0, x: inPostion.x[i], y: inPostion.y[i], duration: 1, ease: Cubic.easeOut }
+                )
+            })
         }
 
         function exitStep3Swiper() {
             $(_stepList[3]).find(".tutorial-description").removeClass("on");
+
+            const swiper = $(_stepList[3]).find(".tutorial-description");
+
+            gsap.fromTo(swiper, 
+                { opacity: 1, y: 0 }, 
+                { opacity: 0, y: 0, duration: 1, ease: Cubic.easeInOut, onComplete: () => {
+                    swiper.css("display", "none");
+            }});
         }
 
         function inStep4() {
+            const delayTime = 0.5;
             $(_stepList[4]).addClass("on");
+
+            const stepTitle = $(_stepList[4]).find(".tutorial-step-bx");
+            const stepTitleDt = stepTitle.find("dl dt");
+            const stepTitleDd = stepTitle.find("dl dd");
+            const animationItems = $(_stepList[4]).find(".tutorial-animation--items--04").find("img");
+
+            gsap.set(stepTitleDt, { opacity: 0 });
+            gsap.set(stepTitleDd, { opacity: 0 });
+            gsap.set(animationItems, { opacity: 0 });
+
+            gsap.fromTo(stepTitleDt,
+                { opacity: 0, y: -20 },
+                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+            )
+
+            gsap.fromTo(stepTitleDd,
+                { opacity: 0, y: -20 },
+                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+            )
+
+            const inPostion = {
+                x: [0, 50],
+                y: [30, 0],
+            }
+
+            animationItems.each(function (i, el) {
+                if( i === 2 ){
+                    return;
+                }
+
+                gsap.fromTo(el,
+                    { opacity: 0, x: inPostion.x[i], y: inPostion.y[i] },
+                    { opacity: 1, x: 0, y: 0, duration: 1, ease: Cubic.easeInOut, delay: delayTime }
+                )
+            });
+
+            gsap.fromTo( animationItems[2], 
+                { opacity: 0, x: 100 },
+                { opacity: 1, x: 0, duration: 0.5, ease: "none", delay: 1.25 }
+            )
         }
 
         function exitStep4() {
             $(_stepList[4]).removeClass("on");
+
+            const stepTitle = $(_stepList[4]).find(".tutorial-step-bx");
+            const stepTitleDt = stepTitle.find("dl dt");
+            const stepTitleDd = stepTitle.find("dl dd");
+
+            gsap.fromTo(stepTitleDt,
+                { opacity: 1, y: 0 },
+                { opacity: 0, y: -20, duration: 1, ease: Cubic.easeOut }
+            )
+
+            gsap.fromTo(stepTitleDd,
+                { opacity: 1, y: 0 },
+                { opacity: 0, y: -20, duration: 1, ease: Cubic.easeOut }
+            )
+
+            const animationItems = $(_stepList[4]).find(".tutorial-animation--items--04").find("img");
+            const inPostion = {
+                x: [0, 50, 0],
+                y: [30, 0, 0],
+            }
+
+            animationItems.each(function (i, el) {
+                gsap.fromTo(el,
+                    { opacity: 1, x: 0, y: 0 },
+                    { opacity: 0, x: inPostion.x[i], y: inPostion.y[i], duration: 1, ease: Cubic.easeOut }
+                )
+            })
         }
 
         function inQuiz() {

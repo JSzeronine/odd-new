@@ -104,7 +104,6 @@ body {
                 height: 100dvh;
 
                 &.visual{
-                    opacity: 0;
                     &.on{
                         z-index: 60;
                     }
@@ -637,6 +636,7 @@ body {
                     line-height: 100%;
                     margin-bottom: 12px;
                     color: #002800;
+                    opacity: 0;
                 }
 
                 dd {
@@ -644,6 +644,7 @@ body {
                     font-size: 16px;
                     line-height: 150%;
                     color: #002800;
+                    opacity: 0;
                 }
             }
         }
@@ -654,9 +655,12 @@ body {
             bottom: 22px;
             transform: translateX(-50%);
             z-index: 10;
+            opacity: 0;
 
             img {
                 width: 227px;
+                position: relative;
+                top: 44px;
             }
 
             span {
@@ -680,18 +684,12 @@ body {
             overflow: hidden;
 
             .secret-bg-item {
+                opacity: 0;
                 position: absolute;
                 width: 570px;
                 bottom: 0;
                 left: 50%;
                 transform: translate3d(-50%, 0, 0);
-            }
-
-            .secret-bg-img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center bottom;
             }
         }
     }

@@ -54,15 +54,8 @@
 
         let isScroll = false;
         function createScroll() {
-            const _sections = $(".section");
-            _sections.each(function (idx, el) {
-                if ($(el).hasClass("on")) {
-                    sceneIndex = idx;
-                }
-            });
-
-            // if (iC === false) change(sceneIndex, "up");
-            // iC = true;
+            if (iC === false) change(sceneIndex, "up");
+            iC = true;
 
             let sX = 0;
             let sY = 0;
@@ -79,7 +72,7 @@
 
             $(window).off("touchend").on("touchend", function (e) {
                 if( isScroll ) return;
-
+                
                 let { clientX, clientY } = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
 
                 mX = Math.abs(clientX - sX);
@@ -96,11 +89,6 @@
                         sceneIndex--;
                     }
 
-                    if( sceneIndex > 3 ){
-                        sceneIndex = 3;
-                        return;
-                    }
-
                     if (sceneIndex < 0) {
                         sceneIndex = 0;
                         return;
@@ -109,8 +97,12 @@
                         return;
                     }
 
-                    change(sceneIndex, sceneType);
+                    if( sceneIndex > 10 ){
+                        sceneIndex = 10;
+                        return;
+                    }
 
+                    change(sceneIndex, sceneType);
                     setTimeout(() => {
                         isScroll = false;
                     }, 1500 );

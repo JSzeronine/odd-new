@@ -2816,9 +2816,6 @@ body.hidden {
   width: 100%;
   height: 100dvh;
 }
-.fullpage .inner .sections .section.visual {
-  opacity: 0;
-}
 .fullpage .inner .sections .section.visual.on {
   z-index: 60;
 }
@@ -3272,12 +3269,14 @@ body.hidden {
   line-height: 100%;
   margin-bottom: 12px;
   color: #002800;
+  opacity: 0;
 }
 .fullpage .secret .secret-title dl dd {
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
   color: #002800;
+  opacity: 0;
 }
 .fullpage .secret .secret-img {
   position: absolute;
@@ -3285,9 +3284,12 @@ body.hidden {
   bottom: 22px;
   transform: translateX(-50%);
   z-index: 10;
+  opacity: 0;
 }
 .fullpage .secret .secret-img img {
   width: 227px;
+  position: relative;
+  top: 44px;
 }
 .fullpage .secret .secret-img span {
   display: block;
@@ -3308,17 +3310,12 @@ body.hidden {
   overflow: hidden;
 }
 .fullpage .secret .secret-bg .secret-bg-item {
+  opacity: 0;
   position: absolute;
   width: 570px;
   bottom: 0;
   left: 50%;
   transform: translate3d(-50%, 0, 0);
-}
-.fullpage .secret .secret-bg .secret-bg-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center bottom;
 }
 .fullpage .quiz {
   background-color: #FAFAF0;
