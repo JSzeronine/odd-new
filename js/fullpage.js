@@ -22,7 +22,7 @@
             createQuiz();
             createStep();
 
-            // createScroll();
+            createScroll();
         }
 
         function createStep() {
@@ -47,7 +47,7 @@
             });
         }
 
-        let sceneIndex = 0;
+        let sceneIndex = 2;
         let sceneType = "";
 
         let iC = false;
@@ -222,62 +222,6 @@
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         function createQuiz() {
             const quiz = $(".quiz");
             const quizBtn = quiz.find(".quiz-item-list input");
@@ -364,7 +308,7 @@
 
                             setTimeout(() => {
                                 $("body").removeClass("hidden");
-                                createScroll();
+                                // createScroll();
                             }, 2000);
                         }
                     }

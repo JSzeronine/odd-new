@@ -2930,25 +2930,37 @@ body.hidden {
   bottom: 16px;
 }
 .fullpage .step-list .tutorial-content .tutorial-bg .tutorial-step-bx {
-  padding-top: 109px;
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
-  height: calc(100vh + 100px);
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+.fullpage .step-list .tutorial-content .tutorial-bg .tutorial-step-bx.tutorial-step-bx--00 dl {
+  height: 418px;
+}
+.fullpage .step-list .tutorial-content .tutorial-bg .tutorial-step-bx.tutorial-step-bx--01 dl {
+  height: 450px;
+}
+.fullpage .step-list .tutorial-content .tutorial-bg .tutorial-step-bx.tutorial-step-bx--02 dl {
+  height: 450px;
+}
+.fullpage .step-list .tutorial-content .tutorial-bg .tutorial-step-bx.tutorial-step-bx--03 dl {
+  height: 418px;
+}
+.fullpage .step-list .tutorial-content .tutorial-bg .tutorial-step-bx.tutorial-step-bx--04 dl {
+  height: 418px;
 }
 .fullpage .step-list .tutorial-content .tutorial-bg .tutorial-step-bx dl {
   text-align: center;
   transition: transform 0.3s ease-in-out;
   transform: translateY(50px);
-}
-.fullpage .step-list .tutorial-content .tutorial-bg .tutorial-step-bx dl.show-sticky {
-  position: sticky;
-  left: 0;
-  top: 109px;
+  position: relative;
+  top: 0px;
 }
 .fullpage .step-list .tutorial-content .tutorial-bg .tutorial-step-bx dl dt {
   text-align: center;
@@ -3076,6 +3088,7 @@ body.hidden {
   align-items: center;
   position: relative;
   overflow: hidden;
+  opacity: 0;
 }
 .fullpage .visual .visual-logo-bx {
   position: absolute;

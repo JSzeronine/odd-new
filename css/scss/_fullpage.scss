@@ -242,28 +242,48 @@ body {
                 }
 
                 .tutorial-step-bx {
-                    padding-top: 109px;
                     position: absolute;
                     left: 0;
                     top: 0;
                     width: 100%;
-                    height: calc(100vh + 100px);
+                    height: 100dvh;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
+                    justify-content: center;
 
-                    &.show-sticky {}
+                    &.tutorial-step-bx--00{
+                        dl{
+                            height: 418px;
+                        }
+                    }
+                    &.tutorial-step-bx--01{
+                        dl{
+                            height: 450px;
+                        }
+                    }
+                    &.tutorial-step-bx--02{
+                        dl{
+                            height: 450px;
+                        }
+                    }
+                    &.tutorial-step-bx--03{
+                        dl{
+                            height: 418px;
+                        }
+                    }
+                    &.tutorial-step-bx--04{
+                        dl{
+                            height: 418px;
+                        }
+                    }
 
                     dl {
                         text-align: center;
                         transition: transform 0.3s ease-in-out;
                         transform: translateY(50px);
-
-                        &.show-sticky {
-                            position: sticky;
-                            left: 0;
-                            top: 109px;
-                        }
+                        position: relative;
+                        top: 0px;
 
                         dt {
                             text-align: center;
@@ -416,6 +436,7 @@ body {
         align-items: center;
         position: relative;
         overflow: hidden;
+        opacity: 0;
 
         .visual-logo-bx {
             position: absolute;
