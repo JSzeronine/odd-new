@@ -421,7 +421,8 @@
                     )
                 }
 
-                gsap.to(visualKeyImg.find("img"), { y: '150%', duration: 1, ease: Cubic.easeInOut });
+                // gsap.to(visualKeyImg.find("img"), { y: '150%', opacity: 0, duration: 1, ease: Cubic.easeInOut });
+                gsap.to(visualKeyImg.find("img"), { y: '70%', opacity: 0, duration: 1, ease: Cubic.easeInOut });
                 setTimeout(() => {
                     showHidden();
                 }, 550);

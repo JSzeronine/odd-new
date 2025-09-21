@@ -3122,7 +3122,6 @@ body.hidden {
   position: relative;
 }
 .fullpage .visual .visual-key .visual-key-content .visual-key-bx .visual-key-img {
-  overflow: hidden;
   z-index: 2;
   position: absolute;
   left: 50%;
@@ -3288,7 +3287,6 @@ body.hidden {
 .fullpage .secret .secret-img img {
   width: 227px;
   position: relative;
-  top: 44px;
 }
 .fullpage .secret .secret-img span {
   display: block;

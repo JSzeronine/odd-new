@@ -465,7 +465,7 @@ body {
                     position: relative;
 
                     .visual-key-img {
-                        overflow: hidden;
+                        // overflow: hidden;
                         z-index: 2;
                         position: absolute;
                         left: 50%;
@@ -659,7 +659,6 @@ body {
             img {
                 width: 227px;
                 position: relative;
-                top: 44px;
             }
 
             span {
