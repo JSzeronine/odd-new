@@ -3088,7 +3088,6 @@ body.hidden {
   align-items: center;
   position: relative;
   overflow: hidden;
-  opacity: 0;
 }
 .fullpage .visual .visual-logo-bx {
   position: absolute;

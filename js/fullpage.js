@@ -22,7 +22,7 @@
             createQuiz();
             createStep();
 
-            createScroll();
+            // createScroll();
         }
 
         function createStep() {
@@ -47,15 +47,15 @@
             });
         }
 
-        let sceneIndex = 2;
+        let sceneIndex = 0;
         let sceneType = "";
 
         let iC = false;
 
         let isScroll = false;
         function createScroll() {
-            if (iC === false) change(sceneIndex, "up");
-            iC = true;
+            // if (iC === false) change(sceneIndex, "up");
+            // iC = true;
 
             let sX = 0;
             let sY = 0;
@@ -308,7 +308,7 @@
 
                             setTimeout(() => {
                                 $("body").removeClass("hidden");
-                                // createScroll();
+                                createScroll();
                             }, 2000);
                         }
                     }
