@@ -3149,7 +3149,9 @@ body.hidden {
   top: 0;
   z-index: 10;
   opacity: 0;
-  display: none;
+  display: flex;
+  visibility: hidden;
+  pointer-events: none;
 }
 .fullpage .step-list .tutorial-content .tutorial-description .tutorial-desc-swiper {
   position: relative;

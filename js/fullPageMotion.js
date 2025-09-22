@@ -159,14 +159,16 @@
 
             const w = `${25 * idx}%`;
 
-            gsap.to( characterBx, { width: w, duration: 1.5, ease: Cubic.easeInOut });
-            gsap.to( circleBx, { width: w, duration: 1.5, ease: Cubic.easeInOut, onComplete: () => {
-                $(character[characterIdx]).removeClass("on");
-                checkBx.removeClass("on");
-                $(checkBx[idx]).addClass("on");
-                $(checkBxText[idx]).addClass("bold");
-                $(checkBxText[idx]).addClass("on");
-            }});
+            gsap.to(characterBx, { width: w, duration: 1.5, ease: Cubic.easeInOut });
+            gsap.to(circleBx, {
+                width: w, duration: 1.5, ease: Cubic.easeInOut, onComplete: () => {
+                    $(character[characterIdx]).removeClass("on");
+                    checkBx.removeClass("on");
+                    $(checkBx[idx]).addClass("on");
+                    $(checkBxText[idx]).addClass("bold");
+                    $(checkBxText[idx]).addClass("on");
+                }
+            });
 
             character.removeClass("on");
             $(character[characterIdx]).addClass("on");
@@ -215,7 +217,9 @@
 
             const swiper = $(_stepList[0]).find(".tutorial-description");
 
-            swiper.css("display", "flex");
+            swiper.css("visibility", "visible");
+            swiper.css("pointer-events", "auto");
+
             gsap.fromTo(swiper,
                 { opacity: 0, y: 50 },
                 { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut });
@@ -261,7 +265,8 @@
                 { opacity: 1, y: 0 },
                 {
                     opacity: 0, y: 0, duration: 1, ease: Cubic.easeInOut, onComplete: () => {
-                        swiper.css("display", "none");
+                        swiper.css("visibility", "hidden");
+                        swiper.css("pointer-events", "none");
                     }
                 });
         }
@@ -307,7 +312,9 @@
 
             const swiper = $(_stepList[1]).find(".tutorial-description");
 
-            swiper.css("display", "flex");
+            swiper.css("visibility", "visible");
+            swiper.css("pointer-events", "auto");
+
             gsap.fromTo(swiper,
                 { opacity: 0, y: 50 },
                 { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut });
@@ -353,7 +360,8 @@
                 { opacity: 1, y: 0 },
                 {
                     opacity: 0, y: 0, duration: 1, ease: Cubic.easeInOut, onComplete: () => {
-                        swiper.css("display", "none");
+                        swiper.css("visibility", "hidden");
+                        swiper.css("pointer-events", "none");
                     }
                 });
         }
@@ -399,7 +407,9 @@
 
             const swiper = $(_stepList[2]).find(".tutorial-description");
 
-            swiper.css("display", "flex");
+            swiper.css("visibility", "visible");
+            swiper.css("pointer-events", "auto");
+
             gsap.fromTo(swiper,
                 { opacity: 0, y: 50 },
                 { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut });
@@ -445,7 +455,8 @@
                 { opacity: 1, y: 0 },
                 {
                     opacity: 0, y: 0, duration: 1, ease: Cubic.easeInOut, onComplete: () => {
-                        swiper.css("display", "none");
+                        swiper.css("visibility", "hidden");
+                        swiper.css("pointer-events", "none");
                     }
                 });
         }
@@ -500,7 +511,9 @@
 
             const swiper = $(_stepList[3]).find(".tutorial-description");
 
-            swiper.css("display", "flex");
+            swiper.css("visibility", "visible");
+            swiper.css("pointer-events", "auto");
+
             gsap.fromTo(swiper,
                 { opacity: 0, y: 50 },
                 { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut });
@@ -546,12 +559,13 @@
                 { opacity: 1, y: 0 },
                 {
                     opacity: 0, y: 0, duration: 1, ease: Cubic.easeInOut, onComplete: () => {
-                        swiper.css("display", "none");
+                        swiper.css("visibility", "hidden");
+                        swiper.css("pointer-events", "none");
                     }
                 });
         }
 
-        function inStep4( $delayTime = 0.5) {
+        function inStep4($delayTime = 0.5) {
             const delayTime = $delayTime;
             $(_stepList[4]).addClass("on");
 
@@ -630,7 +644,7 @@
         function inQuiz() {
             _quiz.addClass("on");
 
-            gsap.fromTo( _quiz, 
+            gsap.fromTo(_quiz,
                 { opacity: 0, y: 0 },
                 { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut }
             )
@@ -639,7 +653,7 @@
         function exitQuiz() {
             _quiz.addClass("on");
 
-            gsap.fromTo( _quiz, 
+            gsap.fromTo(_quiz,
                 { opacity: 1, y: 0 },
                 { opacity: 0, y: 0, duration: 1, ease: Cubic.easeInOut }
             )

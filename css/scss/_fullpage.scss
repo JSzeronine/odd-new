@@ -512,8 +512,9 @@ body {
                 top: 0;
                 z-index: 10;
                 opacity: 0;
-                display: none;
-                // display: flex;
+                display: flex;
+                visibility: hidden;
+                pointer-events: none;
 
                 .tutorial-desc-swiper {
                     position: relative;
