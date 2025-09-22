@@ -3183,7 +3183,7 @@ body.hidden {
   backface-visibility: hidden;
 }
 .fullpage .step-list .tutorial-content .tutorial-description .tutorial-desc-swiper .swiper-wrapper .swiper-slide .tutorial-desc-bx .tutorial-desc-item .tutorial-desc-item__text {
-  height: 240px;
+  height: 230px;
   padding: 20px 20px 40px 20px;
   box-sizing: border-box;
 }
