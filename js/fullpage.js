@@ -21,6 +21,7 @@
             createVisual();
             createQuiz();
             createStep();
+            createStepContentScroll();
 
             // createScroll();
         }
@@ -47,6 +48,13 @@
             });
         }
 
+        let _isContentScroll = false;
+        function createStepContentScroll() {
+            $( ".tutorial-desc-item__text" ).find( "dd" ).on( "scroll", function(){
+                _isContentScroll = true;
+            });
+        }
+
         let sceneIndex = 0;
         let sceneType = "";
 
@@ -54,8 +62,8 @@
 
         let isScroll = false;
         function createScroll() {
-            // if (iC === false) change(sceneIndex, "up");
-            // iC = true;
+            if (iC === false) change(sceneIndex, "up");
+            iC = true;
 
             let sX = 0;
             let sY = 0;
@@ -72,17 +80,21 @@
 
             $(window).off("touchend").on("touchend", function (e) {
                 if( isScroll ) return;
-                
+                if( _isContentScroll ){
+                    _isContentScroll = false;
+                    return;
+                }
+
                 let { clientX, clientY } = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
 
                 mX = Math.abs(clientX - sX);
                 mY = Math.abs(clientY - sY);
 
-                if( mY < 10 ) return;
-
                 if (mX > mY) {
                     console.log("swiper");
                 } else {
+                    if( mY < 10 ) return;
+
                     if (sY > clientY) {
                         sceneType = "up";
                         sceneIndex++;
@@ -95,11 +107,6 @@
                         sceneIndex = 0;
                         return;
                     } else if (sceneIndex > 11) {
-                        sceneIndex = 11;
-                        return;
-                    }
-
-                    if( sceneIndex > 11 ){
                         sceneIndex = 11;
                         return;
                     }
@@ -117,6 +124,7 @@
 
         function change(idx, type) {
             console.log("SHOW ===========", idx, type);
+
             App.fullPageMotion.skyBg(idx);
             if (type === "up") {
                 switch (idx) {
