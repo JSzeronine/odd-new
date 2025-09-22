@@ -2823,6 +2823,155 @@ body.hidden {
   opacity: 1;
   z-index: 50;
 }
+.fullpage .tutorial-progress-bx {
+  opacity: 0;
+  position: relative;
+}
+.fullpage .tutorial-progress {
+  z-index: 50;
+  position: sticky;
+  left: 0;
+  top: 0px;
+  width: 100%;
+  height: 0;
+  transform: translateY(48px);
+}
+.fullpage .tutorial-progress .circle-character {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  left: 0;
+  top: 6px;
+  box-sizing: border-box;
+  padding: 0 47px;
+}
+.fullpage .tutorial-progress .circle-character .circle-character-bx {
+  display: flex;
+  justify-content: flex-end;
+  width: 0%;
+  position: relative;
+}
+.fullpage .tutorial-progress .circle-character ul {
+  position: relative;
+}
+.fullpage .tutorial-progress .circle-character ul li {
+  font-size: 0;
+  position: absolute;
+  transition: opacity 0.3s ease-in-out;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+.fullpage .tutorial-progress .circle-character ul li img {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.fullpage .tutorial-progress .circle-character ul li.on {
+  opacity: 1;
+}
+.fullpage .tutorial-progress .circle-character ul li:nth-child(1) img {
+  width: 24px;
+}
+.fullpage .tutorial-progress .circle-character ul li:nth-child(2) img {
+  width: 47px;
+}
+.fullpage .tutorial-progress .circle-character ul li:nth-child(3) {
+  top: 3px;
+}
+.fullpage .tutorial-progress .circle-character ul li:nth-child(3) img {
+  width: 16px;
+}
+.fullpage .tutorial-progress .circle-character ul li:nth-child(4) {
+  top: 14px;
+}
+.fullpage .tutorial-progress .circle-character ul li:nth-child(4) img {
+  width: 24px;
+}
+.fullpage .tutorial-progress .circle-list-bx {
+  padding: 26px 40px 0;
+  box-sizing: border-box;
+  font-size: 0;
+}
+.fullpage .tutorial-progress .circle-list-bx ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+.fullpage .tutorial-progress .circle-list-bx ul li {
+  position: relative;
+}
+.fullpage .tutorial-progress .circle-list-bx ul li .circle-list-item {
+  position: relative;
+  font-size: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fullpage .tutorial-progress .circle-list-bx ul li .circle-list-item.on .circle-bg {
+  width: 16px;
+  height: 16px;
+}
+.fullpage .tutorial-progress .circle-list-bx ul li .circle-list-item.on img {
+  opacity: 1;
+}
+.fullpage .tutorial-progress .circle-list-bx ul li .circle-list-item img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.fullpage .tutorial-progress .circle-list-bx ul li .circle-list-item .circle-bg {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+}
+.fullpage .tutorial-progress .circle-list-bx ul li .circle-list-item__text {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 140%;
+  color: #ffffff;
+  position: absolute;
+  left: 50%;
+  bottom: -24px;
+  word-break: keep-all;
+  transform: translateX(-50%);
+  opacity: 0.6;
+}
+.fullpage .tutorial-progress .circle-list-bx ul li .circle-list-item__text.on {
+  opacity: 1;
+}
+.fullpage .tutorial-progress .circle-list-bx ul li .circle-list-item__text.bold {
+  font-weight: 700;
+}
+.fullpage .tutorial-progress .circle-list-bx .circle-line-bx {
+  position: relative;
+  left: 4px;
+  width: calc(100% - 8px);
+  top: -9px;
+}
+.fullpage .tutorial-progress .circle-list-bx .circle-line-bx .circle-line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #ffffff;
+}
+.fullpage .tutorial-progress .circle-list-bx .circle-line-bx .circle-line-bg {
+  width: 100%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
 .fullpage .step-list {
   position: relative;
 }

@@ -212,7 +212,6 @@
                 checkBxText.removeClass("bold");
                 $(checkBxText[idx]).addClass("bold");
                 $(checkBxText[idx]).addClass("on");
-
             }
 
             const content00 = $(".tutorial-00");

@@ -46,7 +46,7 @@
         function skyBg(idx) {
             gsap.killTweensOf(_skyBg);
             gsap.killTweensOf(_skyCould);
-            
+
             gsap.to(_skyBg, { duration: 1.5, y: _bgY[idx], ease: Cubic.easeInOut });
             gsap.to(_skyCould, { duration: 2, y: _bgY[idx], ease: Cubic.easeInOut });
         }
@@ -54,7 +54,7 @@
         function inVisual() {
             const delayTime = 0;
 
-            _visual.css( "display", "flex" );
+            _visual.css("display", "flex");
 
             gsap.to(visual, { opacity: 1, duration: 1, ease: Cubic.easeInOut, delay: delayTime });
             gsap.to(visualVideo, { duration: 1, scale: 1, ease: Cubic.easeInOut, delay: delayTime });
@@ -65,9 +65,11 @@
 
             gsap.to(visual, { alpha: 0, duration: 1, ease: Cubic.easeInOut });
             gsap.to(visualVideo, { duration: 1, scale: 0.95, ease: Cubic.easeInOut });
-            gsap.to(visualIntroduce, { duration: 1, scale: 1.2, ease: Cubic.easeInOut, onComplete: () => {
-                _visual.css( "display", "none" );
-            }});
+            gsap.to(visualIntroduce, {
+                duration: 1, scale: 1.2, ease: Cubic.easeInOut, onComplete: () => {
+                    _visual.css("display", "none");
+                }
+            });
         }
 
         function inSecret() {
@@ -134,6 +136,44 @@
             )
         }
 
+        function inProgress() {
+            gsap.fromTo($(".tutorial-progress-bx"),
+                { y: -40, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1, ease: Cubic.easeInOut, delay: 0.5, });
+        }
+
+        function exitProgress() {
+            gsap.fromTo($(".tutorial-progress-bx"),
+                { y: 0, opacity: 1 },
+                { y: -40, opacity: 0, duration: 1.5, ease: Cubic.easeOut });
+
+        }
+
+        function showProgress(idx, characterIdx, isIn) {
+            const progressBx = $(".tutorial-progress-bx");
+            const characterBx = progressBx.find(".circle-character-bx");
+            const circleBx = progressBx.find(".circle-line-bx").find(".circle-line");
+            const character = progressBx.find(".circle-character").find("li");
+            const checkBx = progressBx.find(".circle-list-bx").find(".circle-list-item");
+            const checkBxText = progressBx.find(".circle-list-bx").find(".circle-list-item__text");
+
+            const w = `${25 * idx}%`;
+
+            gsap.to( characterBx, { width: w, duration: 1.5, ease: Cubic.easeInOut });
+            gsap.to( circleBx, { width: w, duration: 1.5, ease: Cubic.easeInOut, onComplete: () => {
+                $(character[characterIdx]).removeClass("on");
+                checkBx.removeClass("on");
+                $(checkBx[idx]).addClass("on");
+                $(checkBxText[idx]).addClass("bold");
+                $(checkBxText[idx]).addClass("on");
+            }});
+
+            character.removeClass("on");
+            $(character[characterIdx]).addClass("on");
+
+            checkBxText.removeClass("bold");
+        }
+
         function inStep0() {
             const delayTime = 0.5;
             $(_stepList[0]).addClass("on");
@@ -176,8 +216,8 @@
             const swiper = $(_stepList[0]).find(".tutorial-description");
 
             swiper.css("display", "flex");
-            gsap.fromTo(swiper, 
-                { opacity: 0, y: 50 }, 
+            gsap.fromTo(swiper,
+                { opacity: 0, y: 50 },
                 { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut });
         }
 
@@ -217,11 +257,13 @@
 
             const swiper = $(_stepList[0]).find(".tutorial-description");
 
-            gsap.fromTo(swiper, 
-                { opacity: 1, y: 0 }, 
-                { opacity: 0, y: 0, duration: 1, ease: Cubic.easeInOut, onComplete: () => {
-                    swiper.css("display", "none");
-            }});
+            gsap.fromTo(swiper,
+                { opacity: 1, y: 0 },
+                {
+                    opacity: 0, y: 0, duration: 1, ease: Cubic.easeInOut, onComplete: () => {
+                        swiper.css("display", "none");
+                    }
+                });
         }
 
         function inStep1() {
@@ -266,8 +308,8 @@
             const swiper = $(_stepList[1]).find(".tutorial-description");
 
             swiper.css("display", "flex");
-            gsap.fromTo(swiper, 
-                { opacity: 0, y: 50 }, 
+            gsap.fromTo(swiper,
+                { opacity: 0, y: 50 },
                 { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut });
         }
 
@@ -307,11 +349,13 @@
 
             const swiper = $(_stepList[1]).find(".tutorial-description");
 
-            gsap.fromTo(swiper, 
-                { opacity: 1, y: 0 }, 
-                { opacity: 0, y: 0, duration: 1, ease: Cubic.easeInOut, onComplete: () => {
-                    swiper.css("display", "none");
-            }});
+            gsap.fromTo(swiper,
+                { opacity: 1, y: 0 },
+                {
+                    opacity: 0, y: 0, duration: 1, ease: Cubic.easeInOut, onComplete: () => {
+                        swiper.css("display", "none");
+                    }
+                });
         }
 
         function inStep2() {
@@ -356,8 +400,8 @@
             const swiper = $(_stepList[2]).find(".tutorial-description");
 
             swiper.css("display", "flex");
-            gsap.fromTo(swiper, 
-                { opacity: 0, y: 50 }, 
+            gsap.fromTo(swiper,
+                { opacity: 0, y: 50 },
                 { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut });
         }
 
@@ -397,11 +441,13 @@
 
             const swiper = $(_stepList[2]).find(".tutorial-description");
 
-            gsap.fromTo(swiper, 
-                { opacity: 1, y: 0 }, 
-                { opacity: 0, y: 0, duration: 1, ease: Cubic.easeInOut, onComplete: () => {
-                    swiper.css("display", "none");
-            }});
+            gsap.fromTo(swiper,
+                { opacity: 1, y: 0 },
+                {
+                    opacity: 0, y: 0, duration: 1, ease: Cubic.easeInOut, onComplete: () => {
+                        swiper.css("display", "none");
+                    }
+                });
         }
 
         function inStep3() {
@@ -433,7 +479,7 @@
             }
 
             animationItems.each(function (i, el) {
-                if( i === 4 ){
+                if (i === 4) {
                     return;
                 }
 
@@ -443,7 +489,7 @@
                 )
             });
 
-            gsap.fromTo( animationItems[4], 
+            gsap.fromTo(animationItems[4],
                 { opacity: 0, rotationY: 0 },
                 { opacity: 1, rotationY: 360, duration: 0.75, ease: "none", delay: 1.25 }
             )
@@ -455,8 +501,8 @@
             const swiper = $(_stepList[3]).find(".tutorial-description");
 
             swiper.css("display", "flex");
-            gsap.fromTo(swiper, 
-                { opacity: 0, y: 50 }, 
+            gsap.fromTo(swiper,
+                { opacity: 0, y: 50 },
                 { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut });
         }
 
@@ -496,15 +542,17 @@
 
             const swiper = $(_stepList[3]).find(".tutorial-description");
 
-            gsap.fromTo(swiper, 
-                { opacity: 1, y: 0 }, 
-                { opacity: 0, y: 0, duration: 1, ease: Cubic.easeInOut, onComplete: () => {
-                    swiper.css("display", "none");
-            }});
+            gsap.fromTo(swiper,
+                { opacity: 1, y: 0 },
+                {
+                    opacity: 0, y: 0, duration: 1, ease: Cubic.easeInOut, onComplete: () => {
+                        swiper.css("display", "none");
+                    }
+                });
         }
 
-        function inStep4() {
-            const delayTime = 0.5;
+        function inStep4( $delayTime = 0.5) {
+            const delayTime = $delayTime;
             $(_stepList[4]).addClass("on");
 
             const stepTitle = $(_stepList[4]).find(".tutorial-step-bx");
@@ -532,7 +580,7 @@
             }
 
             animationItems.each(function (i, el) {
-                if( i === 2 ){
+                if (i === 2) {
                     return;
                 }
 
@@ -542,7 +590,7 @@
                 )
             });
 
-            gsap.fromTo( animationItems[2], 
+            gsap.fromTo(animationItems[2],
                 { opacity: 0, x: 100 },
                 { opacity: 1, x: 0, duration: 0.5, ease: "none", delay: 1.25 }
             )
@@ -581,10 +629,21 @@
 
         function inQuiz() {
             _quiz.addClass("on");
+
+            gsap.fromTo( _quiz, 
+                { opacity: 0, y: 0 },
+                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut }
+            )
         }
 
         function exitQuiz() {
-            _quiz.removeClass("on");
+            _quiz.addClass("on");
+
+            gsap.fromTo( _quiz, 
+                { opacity: 1, y: 0 },
+                { opacity: 0, y: 0, duration: 1, ease: Cubic.easeInOut }
+            )
+
         }
 
 
@@ -614,7 +673,10 @@
             exitStep1Swiper,
             exitStep2Swiper,
             exitStep3Swiper,
-            skyBg
+            skyBg,
+            inProgress,
+            exitProgress,
+            showProgress,
         }
     }
 

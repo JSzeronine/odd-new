@@ -99,8 +99,8 @@
                         return;
                     }
 
-                    if( sceneIndex > 10 ){
-                        sceneIndex = 10;
+                    if( sceneIndex > 11 ){
+                        sceneIndex = 11;
                         return;
                     }
 
@@ -129,6 +129,8 @@
                     case 2:
                         App.fullPageMotion.exitSecret();
                         App.fullPageMotion.inStep0();
+                        App.fullPageMotion.inProgress();
+                        App.fullPageMotion.showProgress(0, -1, true);
                         break;
                     case 3:
                         App.fullPageMotion.inStep0Swiper();
@@ -137,6 +139,7 @@
                         App.fullPageMotion.exitStep0();
                         App.fullPageMotion.exitStep0Swiper();
                         App.fullPageMotion.inStep1();
+                        App.fullPageMotion.showProgress(1, 0, true);
                         break;
                     case 5:
                         App.fullPageMotion.inStep1Swiper();
@@ -145,6 +148,7 @@
                         App.fullPageMotion.exitStep1();
                         App.fullPageMotion.exitStep1Swiper();
                         App.fullPageMotion.inStep2();
+                        App.fullPageMotion.showProgress(2, 1, true);
                         break;
                     case 7:
                         App.fullPageMotion.inStep2Swiper();
@@ -153,6 +157,7 @@
                         App.fullPageMotion.exitStep2();
                         App.fullPageMotion.exitStep2Swiper();
                         App.fullPageMotion.inStep3();
+                        App.fullPageMotion.showProgress(3, 2, true);
                         break;
                     case 9:
                         App.fullPageMotion.inStep3Swiper();
@@ -161,10 +166,12 @@
                         App.fullPageMotion.exitStep3();
                         App.fullPageMotion.exitStep3Swiper();
                         App.fullPageMotion.inStep4();
+                        App.fullPageMotion.showProgress(4, 3, true);
                         break;
                     case 11:
                         App.fullPageMotion.exitStep4();
                         App.fullPageMotion.inQuiz();
+                        App.fullPageMotion.exitProgress();
                         break;
                 }
             } else {
@@ -176,6 +183,7 @@
                     case 1:
                         App.fullPageMotion.inSecret();
                         App.fullPageMotion.exitStep0();
+                        App.fullPageMotion.exitProgress();
                         break;
 
                     case 2:
@@ -185,6 +193,7 @@
                         App.fullPageMotion.exitStep1();
                         App.fullPageMotion.inStep0();
                         App.fullPageMotion.inStep0Swiper();
+                        App.fullPageMotion.showProgress(0, 0, true);
                         break;
 
                     case 4:
@@ -194,6 +203,7 @@
                         App.fullPageMotion.exitStep2();
                         App.fullPageMotion.inStep1();
                         App.fullPageMotion.inStep1Swiper();
+                        App.fullPageMotion.showProgress(1, 1, true);
                         break;
 
                     case 6:
@@ -203,6 +213,7 @@
                         App.fullPageMotion.exitStep3();
                         App.fullPageMotion.inStep2();
                         App.fullPageMotion.inStep2Swiper();
+                        App.fullPageMotion.showProgress(2, 2, true);
                         break;
 
                     case 8:
@@ -212,11 +223,13 @@
                         App.fullPageMotion.exitStep4();
                         App.fullPageMotion.inStep3();
                         App.fullPageMotion.inStep3Swiper();
+                        App.fullPageMotion.showProgress(3, 3, true);
                         break;
 
                     case 10:
                         App.fullPageMotion.exitQuiz();
-                        App.fullPageMotion.inStep4();
+                        App.fullPageMotion.inStep4(0);
+                        App.fullPageMotion.inProgress();
                         break;
                 }
             }
@@ -365,7 +378,6 @@
                     )
                 }
 
-                // gsap.to(visualKeyImg.find("img"), { y: '150%', opacity: 0, duration: 1, ease: Cubic.easeInOut });
                 gsap.to(visualKeyImg.find("img"), { y: '100%', opacity: 0, duration: 1, ease: Cubic.easeInOut });
                 setTimeout(() => {
                     showHidden();
