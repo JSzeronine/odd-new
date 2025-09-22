@@ -3093,10 +3093,10 @@ body.hidden {
   height: 418px;
 }
 .fullpage .step-list .tutorial-content .tutorial-bg .tutorial-step-bx.tutorial-step-bx--01 dl {
-  height: 450px;
+  height: 418px;
 }
 .fullpage .step-list .tutorial-content .tutorial-bg .tutorial-step-bx.tutorial-step-bx--02 dl {
-  height: 450px;
+  height: 418px;
 }
 .fullpage .step-list .tutorial-content .tutorial-bg .tutorial-step-bx.tutorial-step-bx--03 dl {
   height: 418px;
@@ -3183,6 +3183,7 @@ body.hidden {
   backface-visibility: hidden;
 }
 .fullpage .step-list .tutorial-content .tutorial-description .tutorial-desc-swiper .swiper-wrapper .swiper-slide .tutorial-desc-bx .tutorial-desc-item .tutorial-desc-item__text {
+  height: 240px;
   padding: 20px 20px 40px 20px;
   box-sizing: border-box;
 }
