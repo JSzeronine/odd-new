@@ -644,6 +644,7 @@
                 )
             })
         }
+        
 
         function inQuiz() {
             _quiz.addClass("on");
@@ -668,6 +669,7 @@
                 { scale: 1.5},
                 { scale: 1, duration: 1, ease: Cubic.easeInOut }
             )
+
 
             const productDescription = _quiz.find(".quiz-product-description");
             gsap.fromTo(productDescription,

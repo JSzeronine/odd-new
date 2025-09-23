@@ -384,6 +384,7 @@
 
             function showVisual() {
 
+                
                 function showHidden() {
                     gsap.to(visualLogo, { opacity: 0, y: -20, duration: 0.6, ease: Cubic.easeInOut });
                     gsap.to(visualLogoText, { opacity: 0, y: 20, duration: 0.6, ease: Cubic.easeInOut });
