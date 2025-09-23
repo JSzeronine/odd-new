@@ -23,7 +23,7 @@
             createStep();
             createStepContentScroll();
 
-            // createScroll();
+            createScroll();
         }
 
         function createStep() {
@@ -50,12 +50,12 @@
 
         let _isContentScroll = false;
         function createStepContentScroll() {
-            $( ".tutorial-desc-item__text" ).find( "dd" ).on( "scroll", function(){
+            $(".tutorial-desc-item__text").find("dd").on("scroll", function () {
                 _isContentScroll = true;
             });
         }
 
-        let sceneIndex = 0;
+        let sceneIndex = 11;
         let sceneType = "";
 
         let iC = false;
@@ -79,8 +79,8 @@
             });
 
             $(window).off("touchend").on("touchend", function (e) {
-                if( isScroll ) return;
-                if( _isContentScroll ){
+                if (isScroll) return;
+                if (_isContentScroll) {
                     _isContentScroll = false;
                     return;
                 }
@@ -93,7 +93,7 @@
                 if (mX > mY) {
                     console.log("swiper");
                 } else {
-                    if( mY < 10 ) return;
+                    if (mY < 10) return;
 
                     if (sY > clientY) {
                         sceneType = "up";
@@ -114,7 +114,7 @@
                     change(sceneIndex, sceneType);
                     setTimeout(() => {
                         isScroll = false;
-                    }, 1000 );
+                    }, 1000);
 
                     isScroll = true;
                 }
@@ -138,37 +138,40 @@
                         App.fullPageMotion.exitSecret();
                         App.fullPageMotion.inStep0();
                         App.fullPageMotion.inProgress();
-                        App.fullPageMotion.showProgress(0, -1, true);
                         break;
                     case 3:
                         App.fullPageMotion.inStep0Swiper();
+                        App.fullPageMotion.showProgress(0.5, 0, false);
                         break;
                     case 4:
                         App.fullPageMotion.exitStep0();
                         App.fullPageMotion.exitStep0Swiper();
                         App.fullPageMotion.inStep1();
-                        App.fullPageMotion.showProgress(1, 0, true);
+                        App.fullPageMotion.showProgress(1, 1, true);
                         break;
                     case 5:
                         App.fullPageMotion.inStep1Swiper();
+                        App.fullPageMotion.showProgress(1.5, 1, false);
                         break;
                     case 6:
                         App.fullPageMotion.exitStep1();
                         App.fullPageMotion.exitStep1Swiper();
                         App.fullPageMotion.inStep2();
-                        App.fullPageMotion.showProgress(2, 1, true);
+                        App.fullPageMotion.showProgress(2, 2, true);
                         break;
                     case 7:
                         App.fullPageMotion.inStep2Swiper();
+                        App.fullPageMotion.showProgress(2.5, 2, false);
                         break;
                     case 8:
                         App.fullPageMotion.exitStep2();
                         App.fullPageMotion.exitStep2Swiper();
                         App.fullPageMotion.inStep3();
-                        App.fullPageMotion.showProgress(3, 2, true);
+                        App.fullPageMotion.showProgress(3, 3, true);
                         break;
                     case 9:
                         App.fullPageMotion.inStep3Swiper();
+                        App.fullPageMotion.showProgress(3.5, 3, false);
                         break;
                     case 10:
                         App.fullPageMotion.exitStep3();
@@ -196,42 +199,46 @@
 
                     case 2:
                         App.fullPageMotion.exitStep0Swiper();
+                        App.fullPageMotion.showProgress(0, 0, true);
                         break;
                     case 3:
                         App.fullPageMotion.exitStep1();
                         App.fullPageMotion.inStep0();
                         App.fullPageMotion.inStep0Swiper();
-                        App.fullPageMotion.showProgress(0, 0, true);
+                        App.fullPageMotion.showProgress(0.5, 0, false);
                         break;
 
                     case 4:
                         App.fullPageMotion.exitStep1Swiper();
+                        App.fullPageMotion.showProgress(1, 0, true);
                         break;
                     case 5:
                         App.fullPageMotion.exitStep2();
                         App.fullPageMotion.inStep1();
                         App.fullPageMotion.inStep1Swiper();
-                        App.fullPageMotion.showProgress(1, 1, true);
+                        App.fullPageMotion.showProgress(1.5, 1, false);
                         break;
 
                     case 6:
                         App.fullPageMotion.exitStep2Swiper();
+                        App.fullPageMotion.showProgress(2, 1, true);
                         break;
                     case 7:
                         App.fullPageMotion.exitStep3();
                         App.fullPageMotion.inStep2();
                         App.fullPageMotion.inStep2Swiper();
-                        App.fullPageMotion.showProgress(2, 2, true);
+                        App.fullPageMotion.showProgress(2.5, 2, false);
                         break;
 
                     case 8:
                         App.fullPageMotion.exitStep3Swiper();
+                        App.fullPageMotion.showProgress(3, 2, true);
                         break;
                     case 9:
                         App.fullPageMotion.exitStep4();
                         App.fullPageMotion.inStep3();
                         App.fullPageMotion.inStep3Swiper();
-                        App.fullPageMotion.showProgress(3, 3, true);
+                        App.fullPageMotion.showProgress(3.5, 3, false);
                         break;
 
                     case 10:
@@ -246,6 +253,11 @@
         function createQuiz() {
             const quiz = $(".quiz");
             const quizBtn = quiz.find(".quiz-item-list input");
+            const quizItem = quiz.find(".quiz-item");
+            // quizItem.on( "touchstart", function(){
+            //     quizItem.removeClass( "on" );
+            //     $( this ).addClass( "on" );
+            // });
 
             const popup = $(".popup");
             const popupBx = popup.find(".popup-content-list");
@@ -270,7 +282,17 @@
                 parent.removeClass("dimmed");
 
                 const idx = $(parent).index();
-                popup.addClass("on");
+
+                setTimeout(() => {
+                    popup.addClass("on");
+                    gsap.fromTo(popup.find(".popup-inner"),
+                        { opacity: 0, y: 30 },
+                        { opacity: 1, y: 0, duration: 0.75, ease: Cubic.easeInOut })
+                }, 500);
+
+                quizItem.removeClass("on");
+                quizItem.off("touchstart");
+                $("body").off("touchend");
 
                 gsap.killTweensOf(popupContents);
                 popupContents.removeClass("on");
@@ -285,6 +307,9 @@
                     { y: -10, opacity: 0 },
                     { y: 0, opacity: 1, duration: 0.35, ease: Cubic.easeInOut });
 
+                $(".quiz-result-icon").addClass("on");
+
+                quizBtn.attr("disabled", true);
             });
         }
 
@@ -329,7 +354,7 @@
 
                             setTimeout(() => {
                                 $("body").removeClass("hidden");
-                                createScroll();
+                                // createScroll();
                             }, 2000);
                         }
                     }

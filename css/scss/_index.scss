@@ -1076,7 +1076,6 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-
         .popup-inner {
             position: relative;
             z-index: 10;
@@ -1084,6 +1083,7 @@ body {
             width: 100%;
             padding: 0 26px;
             box-sizing: border-box;
+            opacity: 0;
 
             .popup-close {
                 text-align: right;

@@ -162,16 +162,20 @@
             gsap.to(characterBx, { width: w, duration: 1.5, ease: Cubic.easeInOut });
             gsap.to(circleBx, {
                 width: w, duration: 1.5, ease: Cubic.easeInOut, onComplete: () => {
-                    $(character[characterIdx]).removeClass("on");
-                    checkBx.removeClass("on");
-                    $(checkBx[idx]).addClass("on");
+                    if (isIn) {
+                        console.log(characterIdx);
+
+                        character.removeClass("on");
+                        $(character[characterIdx]).addClass("on");
+
+                        checkBx.removeClass("on");
+                        $(checkBx[idx]).addClass("on");
+                    }
+
                     $(checkBxText[idx]).addClass("bold");
                     $(checkBxText[idx]).addClass("on");
                 }
             });
-
-            character.removeClass("on");
-            $(character[characterIdx]).addClass("on");
 
             checkBxText.removeClass("bold");
         }
@@ -648,6 +652,34 @@
                 { opacity: 0, y: 0 },
                 { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut }
             )
+
+            const titleBx = _quiz.find(".quiz-title");
+
+            gsap.fromTo(titleBx,
+                { opacity: 0, y: -20 },
+                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut }
+            )
+
+            const itemList = _quiz.find(".quiz-item-list");
+            const item = itemList.find(".quiz-item");
+            const itemImg = item.find(".quiz-item-img");
+
+            gsap.fromTo( itemImg, 
+                { scale: 1.5},
+                { scale: 1, duration: 1, ease: Cubic.easeInOut }
+            )
+
+            const productDescription = _quiz.find(".quiz-product-description");
+            gsap.fromTo(productDescription,
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut }
+            )
+
+            const btn = _quiz.find(".quiz-btn-bx");
+            gsap.fromTo(btn,
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: 1, ease: Cubic.easeInOut }
+            )
         }
 
         function exitQuiz() {
@@ -658,6 +690,26 @@
                 { opacity: 0, y: 0, duration: 1, ease: Cubic.easeInOut }
             )
 
+            gsap.fromTo(titleBx,
+                { opacity: 1, y: 0 },
+                { opacity: 0, y: -20, duration: 1, ease: Cubic.easeInOut }
+            )
+
+            const itemList = _quiz.find(".quiz-item-list");
+            const item = itemList.find(".quiz-item");
+            const itemImg = item.find(".quiz-item-img");
+
+            const productDescription = _quiz.find(".quiz-product-description");
+            gsap.fromTo(productDescription,
+                { opacity: 1, y: 0 },
+                { opacity: 0, y: 20, duration: 1, ease: Cubic.easeInOut }
+            )
+
+            const btn = _quiz.find(".quiz-btn-bx");
+            gsap.fromTo(btn,
+                { opacity: 1, y: 0 },
+                { opacity: 0, y: 20, duration: 1, ease: Cubic.easeInOut }
+            )
         }
 
 
