@@ -690,6 +690,7 @@
                 { opacity: 0, y: 0, duration: 1, ease: Cubic.easeInOut }
             )
 
+            const titleBx = _quiz.find(".quiz-title");
             gsap.fromTo(titleBx,
                 { opacity: 1, y: 0 },
                 { opacity: 0, y: -20, duration: 1, ease: Cubic.easeInOut }

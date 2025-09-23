@@ -23,7 +23,7 @@
             createStep();
             createStepContentScroll();
 
-            createScroll();
+            // createScroll();
         }
 
         function createStep() {
@@ -55,7 +55,7 @@
             });
         }
 
-        let sceneIndex = 11;
+        let sceneIndex = 0;
         let sceneType = "";
 
         let iC = false;
@@ -354,7 +354,7 @@
 
                             setTimeout(() => {
                                 $("body").removeClass("hidden");
-                                // createScroll();
+                                createScroll();
                             }, 2000);
                         }
                     }
